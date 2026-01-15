@@ -1,5 +1,12 @@
 #sudo apt update && sudo apt install --only-upgrade openssh-server
 
+
+# Installation de l'outil
+sudo apt update && sudo apt install ssh-audit -y
+
+# Execution de l'audit sur le port 22222
+ssh-audit -p 22222 localhost
+
 Port 22222
 
 AddressFamily inet
