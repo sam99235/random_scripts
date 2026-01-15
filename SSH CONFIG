@@ -1,6 +1,5 @@
 #sudo apt update && sudo apt install --only-upgrade openssh-server
 
-
 # Installation de l'outil
 sudo apt update && sudo apt install ssh-audit -y
 
@@ -36,3 +35,9 @@ MACs hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com
 sudo  sshd -t   # Tester  la  configuration
 sudo  systemctl  restart  ssh      #  redemarrer ssh 
 ss -tulnp | grep  ssh             # vérifier le port
+
+
+
+Fail2Ban protège SSH contre les tentatives répétées de connexion :
+sudo apt update && sudo apt install fail2ban
+sudo systemctl enable --now fail2ban
