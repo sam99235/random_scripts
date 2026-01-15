@@ -1,0 +1,10 @@
+1  Liste des services inutilisés
+# systemctl  list -units  --type=service
+
+ModemManager.service– rpc-statd.service– avahi-daemon.service– smbd.service– snmpd.service– rpcbind.service– dbus.service1.1  
+
+Désactiver les services inutiles qui laissent des portes ou-vertes parce que la majorité de ces services laissent de ports ouvertes
+#sudo  systemctl  disable  --now  service_name.service
+
+Suppression des paquets orphelins
+# sudo  apt  autoremove  --purge $(deborphan)
