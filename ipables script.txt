@@ -1,0 +1,29 @@
+#!/ bin/ bash
+# Reinitialisation des regles
+iptables -F
+iptables -X
+
+# 1. Politique par defaut : DROP ( Conformite ANSSI / NIST )
+iptables -P INPUT DROP
+iptables -P FORWARD DROP
+iptables -P OUTPUT ACCEPT
+
+# 2. Autoriser l’ interface de boucle locale ( Loopback )
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+
+# 3. Maintien des connexions etablies ( Stateful Inspection )
+iptables -A INPUT -m conntrack -- ctstate ESTABLISHED , RELATED -j
+ACCEPT
+
+# 4. Acces SSH securise sur port personnalise (22222)
+iptables -A INPUT -p tcp --dport 22222 -m conntrack -- ctstate NEW -
+j ACCEPT
+
+# 5. Protection contre les attaques communes (Anti -DoS / Scans )
+iptables -A INPUT -p tcp ! --syn -m conntrack -- ctstate NEW -j DROP
+iptables -A INPUT -p icmp --icmp - type echo - request -m limit --limit
+1/s -j ACCEPT
+
+3# Autoriser SSH sur le port 22222
+sudo iptables -A INPUT -p tcp --dport 22222 -j ACCEPT
