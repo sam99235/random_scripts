@@ -27,3 +27,10 @@ iptables -A INPUT -p icmp --icmp - type echo - request -m limit --limit
 
 3# Autoriser SSH sur le port 22222
 sudo iptables -A INPUT -p tcp --dport 22222 -j ACCEPT
+
+##enregistrer la config 
+sudo  apt  install  iptables -persistent
+sudo  netfilter -persistent  save
+
+##sauvegarder la config iptables 
+sudo iptables-save > ~/backup_iptables_$(date +%F).rules
