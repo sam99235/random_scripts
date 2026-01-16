@@ -1,3 +1,5 @@
+#sudo nano /etc/systemd/system/security-upgrade.service
+
 [Unit]
 Description=Weekly security upgrade (unattended-upgrades)
 After=network-online.target
