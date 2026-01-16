@@ -1,0 +1,6 @@
+[Unit]
+Description=Notify users of upcoming security upgrade (03:00)
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/upgrade-notify.sh "Les mises a jour de securite commenceront
+a 04h00. Veuillez enregistrer votre travail."
