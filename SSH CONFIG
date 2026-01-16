@@ -15,7 +15,13 @@ PermitRootLogin no
 AuthorizedKeysFile .ssh/authorized_keys
 PasswordAuthentication no
 
-MaxAuthTries 5
+MaxAuthTries 3
+MaxSessions 2
+
+TcpKeepAlive no
+
+AllowAgentForwarding no
+
 X11Forwarding no
 
 Include /etc/ssh/sshd_config.d/ciphers.conf
