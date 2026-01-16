@@ -1,0 +1,7 @@
+[Unit]
+Description=Notify users at 03:00 before security upgrade
+[Timer]
+OnCalendar=Sun *-*-* 03:00:00
+Persistent=true
+[Install]
+WantedBy=timers.target
