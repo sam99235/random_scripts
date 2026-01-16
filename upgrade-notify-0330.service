@@ -1,0 +1,6 @@
+[Unit]
+Description=Second notification before security upgrade (03:30)
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/upgrade-notify.sh "Rappel : les mises a jour de securite
+commenceront dans 30 minutes (04h00)."
