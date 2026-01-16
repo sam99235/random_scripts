@@ -1,0 +1,9 @@
+#sudo nano /etc/systemd/system/security-upgrade.timer
+
+[Unit]
+Description=Run security upgrades every Sunday at 04:00
+[Timer]
+OnCalendar=Sun *-*-* 04:00:00
+Persistent=true
+[Install]
+WantedBy=timers.target
