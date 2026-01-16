@@ -1,0 +1,6 @@
+[Unit]
+Description=Weekly security upgrade (unattended-upgrades)
+After=network-online.target
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/unattended-upgrade -d
