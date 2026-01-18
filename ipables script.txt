@@ -31,6 +31,13 @@ sudo iptables -A INPUT -p tcp --dport 22222 -j ACCEPT
 ##enregistrer la config 
 sudo  apt  install  iptables -persistent
 sudo  netfilter -persistent  save
+# Save directly to the file
+iptables-save > /etc/iptables/rules.v4
+
+# Make sure it loads on boot
+systemctl enable netfilter-persistent
+cat /etc/iptables/rules.v4
 
 ##sauvegarder la config iptables 
 sudo iptables-save > ~/backup_iptables_$(date +%F).rules
+
