@@ -27,10 +27,7 @@ Copier le code
 Banner /etc/issue.net
 Restart SSH service:
 
-Bash
 
-Copier le code
+lancer la commande
 sudo systemctl restart ssh
-If you want, I can create three different styles of banner messages — from formal legal tone to friendly but firm — so you can choose the one that fits your server’s personality.
-Do you want me to prepare those?
 
