@@ -8,6 +8,12 @@ iptables -P INPUT DROP
 iptables -P FORWARD DROP
 iptables -P OUTPUT ACCEPT
 
+
+# Change security table policies
+iptables -t security -P INPUT ACCEPT
+iptables -t security -P OUTPUT ACCEPT
+iptables -t security -P FORWARD ACCEPT
+
 # 2. Autoriser l’ interface de boucle locale ( Loopback )
 iptables -A INPUT -i lo -j ACCEPT
 iptables -A OUTPUT -o lo -j ACCEPT
@@ -40,4 +46,5 @@ cat /etc/iptables/rules.v4
 
 ##sauvegarder la config iptables 
 sudo iptables-save > ~/backup_iptables_$(date +%F).rules
+
 
