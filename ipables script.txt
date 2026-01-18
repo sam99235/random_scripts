@@ -46,5 +46,3 @@ cat /etc/iptables/rules.v4
 
 ##sauvegarder la config iptables 
 sudo iptables-save > ~/backup_iptables_$(date +%F).rules
-
-
