@@ -1,0 +1,12 @@
+# 1️⃣ Remove USB storage modules immediately (temporary)
+sudo rmmod usb_storage
+sudo rmmod uas
+
+# 2️⃣ Create blacklist file to block them permanently
+echo -e "blacklist usb_storage\nblacklist uas" | sudo tee /etc/modprobe.d/disable-usb.conf
+
+# 3️⃣ Update initramfs (Debian/Ubuntu)
+sudo update-initramfs -u
+
+# 4️⃣ Reboot to apply changes
+sudo reboot
