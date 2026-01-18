@@ -18,6 +18,10 @@ PasswordAuthentication no
 MaxAuthTries 3
 MaxSessions 2
 
+AllowTcpForwarding no
+
+ClientAliveCountMax 2
+
 TcpKeepAlive no
 
 AllowAgentForwarding no
