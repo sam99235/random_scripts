@@ -1,0 +1,17 @@
+# 1️⃣ Generate GRUB password hash
+grub-mkpasswd-pbkdf2
+
+# Example output you will get:
+# PBKDF2 hash of your password is grub.pbkdf2.sha512.10000.XXXXXXXXXXXXXXXXXXXXXXXX
+
+# 2️⃣ Edit 40_custom file to add superuser and hash
+sudo tee -a /etc/grub.d/40_custom > /dev/null <<EOL
+set superusers="admin"
+password_pbkdf2 admin grub.pbkdf2.sha512.10000.XXXXXXXXXXXXXXXXXXXXXXXX
+EOL
+
+# 3️⃣ Update GRUB configuration
+sudo update-grub
+
+# 4️⃣ Reboot to apply
+sudo reboot
