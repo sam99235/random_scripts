@@ -1,0 +1,36 @@
+************************************************************
+*  WARNING: Authorized Access Only!                        *
+*  All activities on this system are monitored and logged. *
+*  Unauthorized access is strictly prohibited and may      *
+*  result in legal action.                                 *
+************************************************************
+How to Set It Up (Linux / SSH)
+
+Edit the banner file (e.g., /etc/issue.net):
+
+Bash
+
+Copier le code
+sudo nano /etc/issue.net
+Paste your custom message there.
+
+Enable the banner in SSH config:
+
+Bash
+
+Copier le code
+sudo nano /etc/ssh/sshd_config
+Find or add:
+
+
+Copier le code
+Banner /etc/issue.net
+Restart SSH service:
+
+Bash
+
+Copier le code
+sudo systemctl restart ssh
+If you want, I can create three different styles of banner messages — from formal legal tone to friendly but firm — so you can choose the one that fits your server’s personality.
+Do you want me to prepare those?
+
